@@ -1,14 +1,24 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import GestureTopTabNavigator from './src/components/TopBarGestureBased'
+import { useFonts } from 'expo-font'
+// import GestureTopTabNavigator from './src/components/TopBarGestureBased'
 // import GestureBottomTabNavigator from './src/components/BottomTabGestureBased'
+import SpinningWheel from './src/components/SpinningWheelComponent'
 
 export default function App() {
+  const [loaded] = useFonts({
+    'Lexend-Regular': require('./assets/fonts/Lexend-Regular.ttf'),
+    'Lexend-Bold': require('./assets/fonts/Lexend-Bold.ttf'),
+  })
+
+  if (!loaded) {
+    return null
+  }
+
   return (
     <View style={styles.container}>
-      <GestureTopTabNavigator />
+      <SpinningWheel />
       <StatusBar style="light"  />
     </View>
   )
