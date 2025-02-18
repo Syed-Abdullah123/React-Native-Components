@@ -34,10 +34,12 @@ Click on any component name to jump to its details:
 A tab navigation system allowing users to swipe left and right to switch screens. Built using `react-native-tab-view`.
 
 <img src="assets/recordings/GestureBasedTopBar.gif" width="400" />
+
 ## Bottom Tab Navigation
 A bottom tab navigation system that supports gesture-based navigation between screens. Also built using `react-native-tab-view`
 
 <img src="assets/recordings/GestureBasedBottomTab.gif" width="400" /
+
 ## Spin and Win Wheel
 An interactive spinning wheel using `react-native-svg` and `Animated` API for smooth animations.
 
