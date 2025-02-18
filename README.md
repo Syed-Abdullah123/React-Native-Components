@@ -33,7 +33,7 @@ Click on any component name to jump to its details:
 ## Top Tab Navigation
 A tab navigation system allowing users to swipe left and right to switch screens. Built using `react-native-tab-view`.
 
-![Top Tab Navigation Demo](https://github.com/Syed-Abdullah123/React-Native-Components/blob/main/assets/recordings/GestureBasedTopBar.mp4)
+![Top Tab Navigation Demo](require("./assets/recordings/GestureBasedTopBar.mp4"))
 ## Bottom Tab Navigation
 A bottom tab navigation system that supports gesture-based navigation between screens. Also built using `react-native-tab-view`
 
