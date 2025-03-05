@@ -9,19 +9,26 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@expo/metro-runtime": "~4.0.1",
     "@expo/vector-icons": "^14.0.2",
+    "@react-native-community/viewpager": "^5.0.11",
     "@react-navigation/native": "^7.0.14",
     "@react-navigation/native-stack": "^7.2.0",
     "expo": "~52.0.30",
-    "expo-asset": "^11.0.3",
+    "expo-asset": "^11.0.4",
     "expo-file-system": "^18.0.10",
     "expo-font": "^13.0.3",
+    "expo-gl": "~15.0.4",
     "expo-print": "^14.0.3",
     "expo-sharing": "^13.0.1",
     "expo-status-bar": "~2.0.1",
+    "expo-three": "^8.0.0",
+    "lucide-react-native": "^0.477.0",
+    "moti": "^0.30.0",
     "react": "18.3.1",
+    "react-dom": "18.3.1",
     "react-native": "0.76.6",
-    "react-native-gesture-handler": "^2.23.0",
+    "react-native-gesture-handler": "^2.24.0",
     "react-native-html-to-pdf": "^0.12.0",
     "react-native-paper": "^5.13.1",
     "react-native-reanimated": "^3.16.7",
@@ -29,14 +36,14 @@
     "react-native-svg": "^15.11.1",
     "react-native-tab-view": "^4.0.5",
     "react-native-vector-icons": "^10.2.0",
-    "react-native-webview": "^13.13.2",
-    "react-dom": "18.3.1",
     "react-native-web": "~0.19.13",
-    "@expo/metro-runtime": "~4.0.1"
+    "react-native-webview": "^13.13.2",
+    "three": "^0.166.1"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@types/react": "~18.3.12",
+    "@types/three": "^0.174.0",
     "typescript": "^5.3.3"
   },
   "private": true
