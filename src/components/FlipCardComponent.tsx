@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -25,50 +25,46 @@ interface FlipCardProps {
 const FlipCard: React.FC<FlipCardProps> = ({ frontContent, backContent }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
-  const handleFlip = useCallback(() => {
-    setIsFlipped((prev) => !prev);
-  }, []);
-
   return (
-    <TouchableOpacity onPress={handleFlip} activeOpacity={0.9}>
-      <View style={styles.cardContainer}>
-        <MotiView
-          animate={{
-            transform: [{ rotateY: isFlipped ? "180deg" : "0deg" }],
-          }}
-          transition={{
-            type: "spring",
-            damping: 12,
-            stiffness: 80,
-            mass: 1,
-          }}
-          style={styles.cardWrapper}
+    <TouchableOpacity
+      onPress={() => setIsFlipped(!isFlipped)}
+      activeOpacity={0.8}
+    >
+      <MotiView
+        from={{
+          rotateY: isFlipped ? "0deg" : "-360deg",
+          scale: 0.9,
+        }}
+        animate={{
+          rotateY: isFlipped ? "360deg" : "0deg",
+          scale: 1,
+        }}
+        transition={{
+          type: "spring",
+          //   damping: 15,
+          //   stiffness: 1000,
+          duration: 5000,
+        }}
+        style={styles.cardContainer}
+      >
+        <View
+          style={[
+            styles.card,
+            {
+              backgroundColor: isFlipped
+                ? backContent.backgroundColor || "#f0f4f8"
+                : frontContent.backgroundColor || "#ffffff",
+            },
+          ]}
         >
-          {/* Front Side */}
-          {!isFlipped && (
-            <View
-              style={[
-                styles.card,
-                { backgroundColor: frontContent.backgroundColor || "red" },
-              ]}
-            >
+          {!isFlipped ? (
+            <View style={styles.frontContent}>
               {frontContent.icon}
               <Text style={styles.frontTitle}>{frontContent.title}</Text>
               <Text style={styles.frontSubtitle}>{frontContent.subtitle}</Text>
             </View>
-          )}
-
-          {/* Back Side */}
-          {isFlipped && (
-            <View
-              style={[
-                styles.card,
-                {
-                  backgroundColor: backContent.backgroundColor || "#e0e7ff",
-                  transform: [{ rotateY: "180deg" }],
-                },
-              ]}
-            >
+          ) : (
+            <View style={styles.backContent}>
               <Text style={styles.backDescription}>
                 {backContent.description}
               </Text>
@@ -79,8 +75,8 @@ const FlipCard: React.FC<FlipCardProps> = ({ frontContent, backContent }) => {
               ))}
             </View>
           )}
-        </MotiView>
-      </View>
+        </View>
+      </MotiView>
     </TouchableOpacity>
   );
 };
@@ -88,54 +84,60 @@ const FlipCard: React.FC<FlipCardProps> = ({ frontContent, backContent }) => {
 const styles = StyleSheet.create({
   cardContainer: {
     width: Dimensions.get("window").width - 40,
-    height: 260,
+    height: 250,
     alignSelf: "center",
-    perspective: 1200, // Helps with the 3D effect
+    // perspective: 1200,
     marginVertical: 12,
-  },
-  cardWrapper: {
-    width: "100%",
-    height: "100%",
-    position: "relative",
-    backfaceVisibility: "hidden",
   },
   card: {
     flex: 1,
-    borderRadius: 18,
-    padding: 22,
+    borderRadius: 16,
+    padding: 24,
     justifyContent: "center",
     alignItems: "center",
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.15,
-    shadowRadius: 6,
+    // shadowColor: "#000",
+    // shadowOffset: { width: 0, height: 6 },
+    // shadowOpacity: 0.15,
+    // shadowRadius: 6,
     elevation: 6,
   },
+  frontContent: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
   frontTitle: {
+    fontFamily: "Lexend-Bold",
     fontSize: 24,
-    fontWeight: "700",
-    marginTop: 15,
-    color: "#1f2937",
+    marginTop: 18,
+    color: "#1c2833",
     textAlign: "center",
   },
   frontSubtitle: {
-    fontSize: 17,
-    color: "#6b7280",
-    marginTop: 6,
+    fontFamily: "Lexend-Regular",
+    fontSize: 18,
+    color: "#566573",
+    marginTop: 10,
     textAlign: "center",
   },
+  backContent: {
+    alignItems: "flex-start",
+    width: "100%",
+  },
   backDescription: {
+    fontFamily: "Lexend-Bold",
     fontSize: 20,
-    fontWeight: "600",
     marginBottom: 14,
-    color: "#374151",
+    color: "#1c2833",
+    width: "100%",
     textAlign: "center",
   },
   backDetail: {
+    fontFamily: "Lexend-Regular",
     fontSize: 16,
-    color: "#475569",
-    marginBottom: 6,
-    textAlign: "center",
+    color: "#2c3e50",
+    marginBottom: 8,
+    width: "100%",
+    paddingHorizontal: 12,
   },
 });
 
