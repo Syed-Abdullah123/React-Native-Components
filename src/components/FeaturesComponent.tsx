@@ -92,13 +92,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   screenTitle: {
+    fontFamily: "Lexend-Bold",
     fontSize: 28,
-    fontWeight: "800",
     color: "#2c3e50",
-    marginBottom: 10,
+    // marginBottom: 10,
+    marginTop: 10,
     textAlign: "center",
   },
   screenSubtitle: {
+    fontFamily: "Lexend-Regular",
     fontSize: 16,
     color: "#7f8c8d",
     marginBottom: 20,
