@@ -2,12 +2,13 @@ import React from "react";
 import { View, StyleSheet } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { useFonts } from "expo-font";
+import CustomLoaderOne from "./src/components/Loaders/CustomLoaderOne";
 // import GestureTopTabNavigator from './src/components/TopBarGestureBased'
 // import GestureBottomTabNavigator from './src/components/BottomTabGestureBased'
-import SpinningWheel from "./src/components/SpinningWheelComponent";
-import ThreeDViewer from "./src/components/ThreeDViewer";
-import HomeScreen from "./src/components/HomeScreen";
-import FeaturesComponent from "./src/components/FeaturesComponent";
+// import SpinningWheel from "./src/components/SpinningWheelComponent";
+// import ThreeDViewer from "./src/components/ThreeDViewer";
+// import HomeScreen from "./src/components/HomeScreen";
+// import FeaturesComponent from "./src/components/FeaturesComponent";
 
 export default function App() {
   const [loaded] = useFonts({
@@ -21,8 +22,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      {/* <HomeScreen /> */}
-      <FeaturesComponent />
+      <CustomLoaderOne />
       <StatusBar style="light" />
     </View>
   );
